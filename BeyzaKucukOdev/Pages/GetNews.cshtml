@@ -1,0 +1,41 @@
+﻿@page
+@model BeyzaKucukOdev.Pages.GetNews
+@{
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <form method="post">
+                    <input type="text" asp-for="TextBoxValue">
+                    <button class="navbar-toggler" type="submit">Ara</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <table>
+    @foreach(var data in Model.AllNews)
+    {
+            <tr>
+                <td>@data.Title</td>
+            </tr>
+            <tr>
+                <td>@data.DatePublished</td>
+            </tr>
+            <tr>
+                <td>@data.FullText</td>
+            </tr>
+    }
+    @foreach (var data in Model.FilteredNews)
+        {
+            <tr>
+                <td>@data.Title</td>
+            </tr>
+            <tr>
+                <td>@data.DatePublished</td>
+            </tr>
+            <tr>
+                <td>@data.FullText</td>
+            </tr>
+    }
+       
+    </table>
+}
